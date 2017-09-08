@@ -124,6 +124,16 @@ feat: Some more cool stuff
 ```
 
 ## Changelog
+## 1.2.0
+*(2017-09-08)*
+
+#### Features
+* Add ability to specify  issue_number_pattern in readmegen.yml config to be able to find issues not only with #121313 for example but with pattern set in issue_number_pattern.
+* Update symfony/yaml dependency from "~2.1" to "^3.2".
+
+---
+
+
 ## 1.1.2
 *(2015-07-12)*
 

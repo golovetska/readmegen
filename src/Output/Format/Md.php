@@ -105,7 +105,11 @@ class Md implements FormatInterface
      */
     protected function injectLinks(&$entry)
     {
-        $entry = preg_replace("/(" . $this->issueNumberPattern . "\\d+)/i", "[(\\1]({$this->pattern})", $entry);
+        if($this->issueNumberPattern){
+            $entry = preg_replace("/(" . $this->issueNumberPattern . "\\d+)/i", "[\\1]({$this->pattern})", $entry);
+            return;
+        }
+        $entry = preg_replace('/#(\d+)/', "[#\\1]({$this->pattern})", $entry);
     }
 
     /**
