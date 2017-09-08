@@ -19,6 +19,13 @@ class Md implements FormatInterface
     protected $pattern;
 
     /**
+     * Issue number pattern.
+     *
+     * @var string
+     */
+    protected $issueNumberPattern;
+
+    /**
      * Output filename.
      *
      * @var string
@@ -66,6 +73,18 @@ class Md implements FormatInterface
     }
 
     /**
+     * @param $issueNumberPattern
+     *
+     * @return $this
+     */
+    public function setIssueNumberPattern($issueNumberPattern)
+    {
+        $this->issueNumberPattern = $issueNumberPattern;
+
+        return $this;
+    }
+
+    /**
      * Decorates the output (e.g. adds linkgs to the issue tracker)
      *
      * @return self
@@ -86,7 +105,7 @@ class Md implements FormatInterface
      */
     protected function injectLinks(&$entry)
     {
-        $entry = preg_replace('/#(\d+)/', "[#\\1]({$this->pattern})", $entry);
+        $entry = preg_replace("/(" . $this->issueNumberPattern . "\\d+)/i", "[(\\1]({$this->pattern})", $entry);
     }
 
     /**

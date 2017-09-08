@@ -19,6 +19,13 @@ interface FormatInterface {
     public function setIssueTrackerUrlPattern($pattern);
 
     /**
+     * @param $issueNumberPattern
+     *
+     * @return $this
+     */
+    public function setIssueNumberPattern($issueNumberPattern);
+
+    /**
      * Decorates the output (e.g. adds linkgs to the issue tracker)
      *
      * @return self
@@ -63,4 +70,4 @@ interface FormatInterface {
      */
     public function setDate(\DateTime $date);
 
-} 
+}

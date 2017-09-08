@@ -49,6 +49,20 @@ class Decorator
     }
 
     /**
+     * Issue number pattern setter.
+     *
+     * @param $issueNumberPattern
+     *
+     * @return $this
+     */
+    public function setIssueNumberPattern($issueNumberPattern)
+    {
+        $this->formatter->setIssueNumberPattern($issueNumberPattern);
+
+        return $this;
+    }
+
+    /**
      * Returns the decorated log.
      *
      * @return FormatInterface
